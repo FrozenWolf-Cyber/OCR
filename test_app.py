@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/predict',methods = ['POST', 'GET'])
 def login():
-   print(request.files)
+   print(request.files,flush=True)
    return "Done"
 
 if __name__ == '__main__':
