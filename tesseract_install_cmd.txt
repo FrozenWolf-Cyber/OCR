@@ -1,0 +1,1 @@
+az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get install tesseract-ocr"
