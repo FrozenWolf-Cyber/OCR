@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from ocr_predictor import predictor
 from flask import Flask, request
 from PIL import Image
@@ -18,7 +17,7 @@ def login():
 
 if __name__ == '__main__':
    app.run(debug=True)
-=======
+
 from ocr_predictor import predictor
 from flask import Flask, request
 from PIL import Image
@@ -38,4 +37,4 @@ def login():
 
 if __name__ == '__main__':
    app.run(debug=True)
->>>>>>> 3486416f61f06dbb9cdd3990d6ec2a391709fcad
+
