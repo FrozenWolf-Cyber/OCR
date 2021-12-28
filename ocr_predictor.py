@@ -62,13 +62,16 @@ class predictor():
         self.similarity_model = siamese_multi_head(device,hidden_size = 64,n_layer= 2,embedding_size = 50).to(self.device)
         self.similarity_model.load_state_dict(torch.load("saved_models/siamese_multi_head.pth",map_location=self.device))
 
-        self.model_sentence_detector = word_detector(False,"saved_models/craft_mlt_25k.pth","saved_models/craft_refiner_CTW1500.pth")
+        temp_device = True
+        if self.device == 'cpu':
+            temp_device = False
+        self.model_sentence_detector = word_detector(temp_device,"saved_models/craft_mlt_25k.pth","saved_models/craft_refiner_CTW1500.pth")
 
         self.model_label_classifier = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=False)
         num_classes = len(self.classes)+1
         in_features = self.model_label_classifier.roi_heads.box_predictor.cls_score.in_features
         self.model_label_classifier.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
-        self.model_label_classifier.load_state_dict(torch.load(f'saved_models/faster_rcnn_sgd.pth'))
+        self.model_label_classifier.load_state_dict(torch.load(f'saved_models/faster_rcnn_sgd.pth',map_location=self.device))
         self.model_label_classifier.eval()
 
         self.vocab = pickle.load(open("saved_models/vocab",'rb'))
