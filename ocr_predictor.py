@@ -62,7 +62,7 @@ class predictor():
         self.similarity_model = siamese_multi_head(device,hidden_size = 64,n_layer= 2,embedding_size = 50).to(self.device)
         self.similarity_model.load_state_dict(torch.load("saved_models/siamese_multi_head.pth",map_location=self.device))
 
-        self.model_sentence_detector = word_detector(True,"saved_models/craft_mlt_25k.pth","saved_models/craft_refiner_CTW1500.pth")
+        self.model_sentence_detector = word_detector(False,"saved_models/craft_mlt_25k.pth","saved_models/craft_refiner_CTW1500.pth")
 
         self.model_label_classifier = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=False)
         num_classes = len(self.classes)+1
