@@ -41,6 +41,10 @@ def predictor(file,id):
 def home():
     return render_template('home.html')
 
+@app.route('/')
+def index():
+    return render_template('home.html')
+
 @app.route('/upload')
 def upload():
     return render_template('upload.html')
