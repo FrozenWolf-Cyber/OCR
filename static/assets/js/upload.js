@@ -38,7 +38,7 @@ function readURL(input) {
 
   function upload() {
     var xhr = new XMLHttpRequest(); 
-  xhr.open("POST", "http://192.168.174.11:5000/predict");  
+  xhr.open("POST", 'http://'+window.location.host+"/predict");  
   xhr.send(data);
   xhr.onreadystatechange = function() { 
     // If the request completed, close the extension popup
@@ -53,7 +53,7 @@ function readURL(input) {
 
   function upload_annotate() {
     var xhr = new XMLHttpRequest(); 
-    xhr.open("POST", "http://192.168.174.11:5000/convert_annotate"); 
+    xhr.open("POST", 'http://'+window.location.host+"/convert_annotate"); 
     xhr.responseType = 'blob'; 
     xhr.send(data);
     xhr.onreadystatechange = function() { 

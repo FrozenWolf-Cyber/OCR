@@ -21,7 +21,7 @@ function getResult(){
     data = new FormData()
     data.append('id',id)
     xhr = new XMLHttpRequest(); 
-    xhr.open("POST", "http://192.168.174.11:5000/model_result");  
+    xhr.open("POST", 'http://'+window.location.host+"/model_result");  
     xhr.send(data); 
     xhr.onreadystatechange = function() { 
 
@@ -42,7 +42,7 @@ function getResult(){
    data = new FormData()
    data.append('id',id)
    var xhr_ = new XMLHttpRequest(); 
-   xhr_.open("POST", "http://192.168.174.11:5000/get_model_img"); 
+   xhr_.open("POST", 'http://'+window.location.host+"/get_model_img"); 
    xhr_.responseType = 'blob'; 
    xhr_.send(data);
    xhr_.onreadystatechange = function() { 
@@ -82,7 +82,7 @@ function check_status(){
     data = new FormData()
     data.append('id',id)
     xhr = new XMLHttpRequest(); 
-    xhr.open("POST", "http://192.168.174.11:5000/status");  
+    xhr.open("POST", 'http://'+window.location.host+"/status");  
     xhr.send(data); 
     var status = 0;
     xhr.onreadystatechange = function() { 
