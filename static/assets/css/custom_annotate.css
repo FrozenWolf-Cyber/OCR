@@ -22,12 +22,25 @@
   max-height: 100vh;
   overflow: auto;
 }
-.limit-word{
-  max-height: 50vh;
-  max-width: 50vh;
-}
-.col.col-7.limit-img {
+
+.limit-img {
   max-height: 100vh;
+  max-width: 95vh;
+
+}
+
+.col.model_bar {
+  padding-bottom: 3%;
+  padding-top: 3%;
+  background-color: rgba(134,169,238,0.75);
+}
+
+.progress-icon{
+  transform: scale(1.4);
+}
+
+.mod-progress-bar{
+  transform: scale(1.15);
 }
 
 .nav-item.menu:hover {
@@ -39,6 +52,10 @@
   text-align: center;
 }
 
+.custom_pos_h {
+  position: relative;
+  padding-top:4%;
+}
 .custom_pos_scroll {
   position: relative;
   padding-top: 2%;

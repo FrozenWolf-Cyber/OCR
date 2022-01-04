@@ -9,7 +9,7 @@
   font-size: 12px;
   position: relative;
   text-align: center;
-  color: #7d7d7d;
+  color: #bb0c0c;
 }
 
 .progressbar li:before {
@@ -31,7 +31,7 @@
   height: 2px;
   content: '';
   position: absolute;
-  background-color: #7d7d7d;
+  background-color: #bb0c0c;
   top: 15px;
   left: -50%;
   z-index: -1;

@@ -40,7 +40,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 id = "response_text" class="feature_h">WAITING FOR RESPONSE...</h1>
+                        <h1 id = "response_text" class="feature_h custom_pos_h">WAITING FOR RESPONSE...</h1>
                     </div>
                 </div>
             </div>
@@ -52,45 +52,47 @@
                         <div class="row">
                             <div class="col custom_progress">
                                 <div class="md-stepper-horizontal orange">
-                                    <div class="md-step active">
-                                        <div class="md-step-circle green"><i class="material-icons size-icon-progess">file_upload</i></div>
-                                        <div class="md-step-title"><span><strong>Upload</strong></span></div>
+                                    <div class="md-step active" onclick="goToConvert()">
+                                        <div class="md-step-circle green progress-icon"><i class="material-icons size-icon-progess">file_upload</i></div>
+                                        <div class="md-step-title progress-icon"><span>Upload</span></div>
                                         <div class="md-step-bar-right"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
                                     <div class="md-step active">
-                                        <div id = "convert" class="md-step-circle orange"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="size-icon-progess">
+                                        <div id = "convert" class="md-step-circle orange progress-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="size-icon-progess">
                                                 <path d="M4.99255 12.9841C4.44027 12.9841 3.99255 13.4318 3.99255 13.9841C3.99255 14.3415 4.18004 14.6551 4.46202 14.8319L7.14964 17.5195C7.54016 17.9101 8.17333 17.9101 8.56385 17.5195C8.95438 17.129 8.95438 16.4958 8.56385 16.1053L7.44263 14.9841H14.9926C15.5448 14.9841 15.9926 14.5364 15.9926 13.9841C15.9926 13.4318 15.5448 12.9841 14.9926 12.9841L5.042 12.9841C5.03288 12.984 5.02376 12.984 5.01464 12.9841H4.99255Z" fill="currentColor"></path>
                                                 <path d="M19.0074 11.0159C19.5597 11.0159 20.0074 10.5682 20.0074 10.0159C20.0074 9.6585 19.82 9.3449 19.538 9.16807L16.8504 6.48045C16.4598 6.08993 15.8267 6.08993 15.4361 6.48045C15.0456 6.87098 15.0456 7.50414 15.4361 7.89467L16.5574 9.01589L9.00745 9.01589C8.45516 9.01589 8.00745 9.46361 8.00745 10.0159C8.00745 10.5682 8.45516 11.0159 9.00745 11.0159L18.958 11.0159C18.9671 11.016 18.9762 11.016 18.9854 11.0159H19.0074Z" fill="currentColor"></path>
                                             </svg></div>
-                                        <div class="md-step-title"><span>Convert<br></span></div>
+                                        <div class="md-step-title progress-icon"><span>Convert<br></span></div>
                                         <div class="md-step-bar-left"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
                                     <div class="md-step active">
-                                        <div id = "annotate"  class="md-step-circle grey"><i class="material-icons size-icon-progess">edit</i></div>
-                                        <div class="md-step-title"><span>Annotate<br></span></div>
+                                        <div id = "annotate"  class="md-step-circle grey progress-icon"><i class="material-icons size-icon-progess">edit</i></div>
+                                        <div class="md-step-title progress-icon"><span>Annotate<br></span></div>
                                         <div class="md-step-bar-left"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    
+                    <div class="row">
+                        <div class="col model_bar">
+                            <ul class="progressbar w-100 mod-progress-bar">
+                                <!-- class = active -->
+                                <li id = "frcnn"><strong>Faster-RCNN</strong> </li> 
+                                <li id = "craft"><strong>CRAFT</strong></li>
+                                <li id = "tess"><strong>Tesseract</strong></li>
+                                <li id = "siamese"><strong>Siamese Neural Network</strong></li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
                 </section>
             </div>
         </div>
-        <div class="row">
-            <div class="col model_bar">
-                <ul class="progressbar w-100">
-                    <!-- class = active -->
-                    <li id = "frcnn">Faster-RCNN</li> 
-                    <li id = "craft">CRAFT</li>
-                    <li id = "tess">Tesseract</li>
-                    <li id = "siamese">Siamese Neural Network</li>
-                </ul>
-            </div>
-        </div>
+
         <section class="upload_sec_pos">
             <div class="container">
                 <div class="row">
@@ -154,7 +156,7 @@
                                 </svg><span class="fw-bold">DOWNLOAD</span></button></div>
                     </div>
                     <div class="col-md-6">
-                        <div class="next_btn"><button onclick="gotoannotate()" class="btn btn-primary content_scale"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-edit">
+                        <div class="next_btn"><button onclick="goto_resultannotate()" class="btn btn-primary content_scale"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-edit">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                     <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
@@ -196,11 +198,12 @@
         </div>
     </section>
     <footer class="footer-basic">
-        <div class="social"><a href="#"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <div class="social"><a href="https://github.com/FrozenWolf-Cyber"><i class="icon ion-social-github"></i></a><a href="https://www.instagram.com/frozenwolf2003/"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com/FrozenW17210314"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/FrozenWolf2003/"><i class="icon ion-social-facebook"></i></a></div>
     </footer>
     <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/bs-init.js')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/result.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navigator.js')}}"></script>
 </body>
 
 </html>

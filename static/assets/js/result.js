@@ -122,7 +122,3 @@ function check_status(){
    }
 
 }
-
-function gotoannotate(){
-   window.location.href = 'http://'+window.location.host+'/annotate';
-}

@@ -44,14 +44,14 @@
     <section class="text-center bg-light features-icons">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 card_hover" >
+                <div class="col-md-6 card_hover " onclick="goToConvert()" >
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                         <div class="d-flex features-icons-icon"><i class="material-icons m-auto text-primary size-icon" data-bss-hover-animate="pulse">center_focus_strong</i></div>
                         <h3><strong>Convert</strong><br></h3>
                         <p class="lead mb-0">Convert images and pdf of scanned document into editable text along with classified labels and links using machine learning models<br></p>
                     </div>
                 </div>
-                <div class="col-md-6 card_hover">
+                <div class="col-md-6 card_hover" onclick="gotoannotate()">
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                         <div class="d-flex features-icons-icon"><i class="material-icons m-auto text-primary size-icon" data-bss-hover-animate="pulse">select_all</i></div>
                         <h3>Annotate</h3>
@@ -107,10 +107,11 @@
         </div>
     </section>
     <footer class="footer-basic">
-        <div class="social"><a href="#"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <div class="social"><a href="https://github.com/FrozenWolf-Cyber"><i class="icon ion-social-github"></i></a><a href="https://www.instagram.com/frozenwolf2003/"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com/FrozenW17210314"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/FrozenWolf2003/"><i class="icon ion-social-facebook"></i></a></div>
     </footer>
     <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/bs-init.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navigator.js')}}"></script>
 </body>
 
 </html>

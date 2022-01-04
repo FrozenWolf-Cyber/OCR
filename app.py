@@ -57,36 +57,6 @@ def upload_annotate():
 def annotate():
     return render_template('annotate.html')
 
-# @app.route('/crop',methods = ['POST', 'GET'])
-# def crop():
-#     if request.method == 'POST':
-#         id = create_id()
-#         while True:
-#             if id not in os.listdir('status'):
-#                 break
-#             id = create_id()
-
-#         os.mkdir('status/'+id)
-#         file = request.files['images']
-#         coords = request.file['crop'] # left upper, right lower x,y
-#         format = str(file)[-6:-3]
-#         file.save(f"temp/temp_{id}."+format)
-
-#         img = Image.open(file)
-#         if img.mode != "RGB":
-#             img = img.convert("RGB")
-#         img.save(f"temp/temp_{id}.jpeg","JPEG")
-
-#         img = Image.open(f"temp/temp_{id}.jpeg")
-#         img = img.crop(tuple(coords))
-#         os.remove(f"temp/temp_{id}."+format)
-#         file_object = io.BytesIO()
-#         img.save(file_object, 'JPEG')
-#         file.close()
-#         os.remove(f"temp/temp_{id}.jpeg")
-#         file_object.seek(0)
-#         return send_file(file_object, mimetype='image/JPEG')
-
 @app.route('/predict',methods = ['POST', 'GET'])
 def predict():
     if request.method == 'POST':

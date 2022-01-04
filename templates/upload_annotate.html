@@ -40,7 +40,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="feature_h">UPLOAD IMAGE TO BE ANNOTATED</h1>
+                        <h1 class="feature_h custom_pos_h">UPLOAD IMAGE TO BE ANNOTATED</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -60,14 +60,14 @@
                             <div class="col custom_progress">
                                 <div class="md-stepper-horizontal orange">
                                     <div class="md-step active">
-                                        <div class="md-step-circle orange"><i class="material-icons size-icon-progess">file_upload</i></div>
-                                        <div class="md-step-title"><span><strong>Upload</strong></span></div>
+                                        <div class="md-step-circle orange progress-icon"><i class="material-icons size-icon-progess">file_upload</i></div>
+                                        <div class="md-step-title progress-icon"><span>Upload</span></div>
                                         <div class="md-step-bar-right"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
                                     <div class="md-step active">
-                                        <div class="md-step-circle grey"><i class="material-icons size-icon-progess">edit</i></div>
-                                        <div class="md-step-title"><span>Annotate<br></span></div>
+                                        <div id = "annotate"  class="md-step-circle grey progress-icon"><i class="material-icons size-icon-progess">edit</i></div>
+                                        <div class="md-step-title progress-icon"><span>Annotate<br></span></div>
                                         <div class="md-step-bar-left"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
@@ -78,7 +78,7 @@
                 </section>
             </div>
         </div>
-        <section class="upload_sec_pos">
+        <section class="upload_sec_pos ">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -88,7 +88,7 @@
                               <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
                             
                               <div class="image-upload-wrap">
-                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/jpeg,image/jpg,image/png,application/pdf" />
                                 <div class="drag-text">
                                   <h3>Drag and drop a file or select add Image</h3>
                                 </div>
@@ -130,9 +130,10 @@
         </div>
     </section>
     <footer class="footer-basic">
-        <div class="social"><a href="#"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <div class="social"><a href="https://github.com/FrozenWolf-Cyber"><i class="icon ion-social-github"></i></a><a href="https://www.instagram.com/frozenwolf2003/"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com/FrozenW17210314"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/FrozenWolf2003/"><i class="icon ion-social-facebook"></i></a></div>
     </footer>
     <script src="{{ url_for('static', filename='assets/js/bs-init.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navigator.js')}}"></script>
 </body>
 
 </html>

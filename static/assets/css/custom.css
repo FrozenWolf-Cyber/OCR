@@ -7,6 +7,7 @@
   cursor: pointer;
 }
 
+
 .card_hover:hover {
   transform: scale(1.02);
 }
@@ -65,7 +66,16 @@ header {
   padding-top: 3%;
   padding-bottom: 2%;
   background-color: #7765ea;
+  /* max-width: 100vh; */
+  
 }
+
+/* .custom_upload_limit{
+  width: 100vh;
+  position: relative;
+  object-fit: contain;
+} */
+
 
 .upload_btn {
   position: relative;
@@ -79,13 +89,7 @@ header {
     background-color: #2ece9e;
   }
   
-.upload_sec_pos {
-    position: relative;
-    padding-top: 3%;
-    padding-bottom: 2%;
-    background-color: #7765ea;
-  }
-  
+
 .upload_btn {
     position: relative;
     text-align: center;
@@ -302,12 +306,7 @@ header {
     background-color: #2ece9e;
   }
   
-.upload_sec_pos {
-    position: relative;
-    padding-top: 3%;
-    padding-bottom: 2%;
-    background-color: #7765ea;
-  }
+
   
 .upload_btn {
     position: relative;
@@ -364,6 +363,19 @@ header {
   background-color: rgba(134,169,238,0.75);
 }
 
+.progress-icon{
+  transform: scale(1.4);
+}
+
+.mod-progress-bar{
+  transform: scale(1.15);
+}
+
+.custom_pos_h {
+  position: relative;
+  padding-top:4%;
+}
+
 .result_h {
   font-size: xx-large;
   text-align: center;
@@ -414,12 +426,6 @@ header {
   background-color: #2ece9e;
 }
 
-.upload_sec_pos {
-  position: relative;
-  padding-top: 3%;
-  padding-bottom: 2%;
-  background-color: #7765ea;
-}
 
 .custom_codeblock {
   width: 88%;

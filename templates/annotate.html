@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="feature_h">ANNOTATE</h1>
+                        <h1 class="feature_h custom_pos_h">ANNOTATE</h1>
                     </div>
                 </div>
             </div>
@@ -54,16 +54,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="col custom_progress">
-                                <div class="md-stepper-horizontal orange">
-                                    <div class="md-step active">
-                                        <div class="md-step-circle green"><i class="material-icons size-icon-progess">file_upload</i></div>
-                                        <div class="md-step-title"><span><strong>Upload</strong></span></div>
+                                <div class="md-stepper-horizontal green">
+                                    <div class="md-step active" onclick="gotoannotate()">
+                                        <div class="md-step-circle green progress-icon"><i class="material-icons size-icon-progess">file_upload</i></div>
+                                        <div class="md-step-title progress-icon"><span>Upload</span></div>
                                         <div class="md-step-bar-right"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
                                     <div class="md-step active">
-                                        <div class="md-step-circle orange"><i class="material-icons size-icon-progess">edit</i></div>
-                                        <div class="md-step-title"><span>Annotate<br></span></div>
+                                        <div id = "annotate"  class="md-step-circle orange progress-icon"><i class="material-icons size-icon-progess">edit</i></div>
+                                        <div class="md-step-title progress-icon"><span>Annotate<br></span></div>
                                         <div class="md-step-bar-left"></div>
                                         <div class="md-step-bar-right"></div>
                                     </div>
@@ -78,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="feature_h">SENTENCE ANNOTATE</h1>
+                        <h1 class="feature_h ">SENTENCE ANNOTATE</h1>
                     </div>
                     <div class="col col-6 limit">
                         <div class="custom_codeblock" contenteditable="false"><pre class="codeblock">
@@ -110,13 +110,13 @@
 <code></pre></code></div>
                     </div>
                     <div class="col col-6 limit-img">
-                        <img class = "limit" id = 'sentence_target'>
+                        <img class = "limit-img" class = "limit" id = 'sentence_target'>
                     </div>
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="feature_h">WORD ANNOTATE</h1>
+                            <h1 class="feature_h custom_pos_h">WORD ANNOTATE</h1>
                         </div>
                         <div class="col col-6 limit">
                             <div class="custom_codeblock" contenteditable="false"><pre class="codeblock">
@@ -147,8 +147,8 @@
                                 }
     <code></pre></code></div>
                         </div>
-                        <div class="col col-6 limit-img">
-                            <img class = "limit" id = 'word_target'>
+                        <div class="col col-6">
+                            <img class = "limit-img" id = 'word_target'>
                         </div>
                     </div>
             </div>
@@ -175,13 +175,14 @@
         </section>
     </header>
     <footer class="footer-basic">
-        <div class="social"><a href="#"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <div class="social"><a href="https://github.com/FrozenWolf-Cyber"><i class="icon ion-social-github"></i></a><a href="https://www.instagram.com/frozenwolf2003/"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com/FrozenW17210314"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/FrozenWolf2003/"><i class="icon ion-social-facebook"></i></a></div>
     </footer>
     <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/bs-init.js')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/annotorious.min.js')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/annotorious.umd.js.map')}}"></script>
     <script src="{{ url_for('static', filename='assets/js/annotate.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navigator.js')}}"></script>
 
     <script type="text/javascript">
 
