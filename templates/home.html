@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+
+    <link rel="stylesheet" href= "{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/material-icons.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Features-Blue.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Footer-Basic.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-Clean.css')}}">
+    
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean">
+        <div class="container"><a class="navbar-brand pulse animated fw-bold" href="#">FROZENWOLF</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item menu"><a class="nav-link active" href="{{ url_for('home') }}" style="border-top-color: rgb(70,;border-right-color: 87,;border-bottom-color: 101);border-left-color: 87,;">HOME</a></li>
+                    <li class="nav-item menu"><a class="nav-link " href="{{ url_for('upload') }}" style="border-top-color: rgb(70,;border-right-color: 87,;border-bottom-color: 101);border-left-color: 87,;">CONVERT</a></li>
+                    <li class="nav-item menu"><a class="nav-link " href="{{ url_for('upload_annotate') }}" style="border-top-color: rgb(70,;border-right-color: 87,;border-bottom-color: 101);border-left-color: 87,;">ANNOTATE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="text-center text-white masthead" style="background:url('static/assets/img/bg-masthead.jpg')no-repeat center center;background-size:cover;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto position-relative">
+                    <h1 class="bounce animated mb-5"><br><strong>Generate editable document from&nbsp; images and pdf of scanned documents</strong><br><br></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="text-center bg-light features-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 card_hover" >
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="d-flex features-icons-icon"><i class="material-icons m-auto text-primary size-icon" data-bss-hover-animate="pulse">center_focus_strong</i></div>
+                        <h3><strong>Convert</strong><br></h3>
+                        <p class="lead mb-0">Convert images and pdf of scanned document into editable text along with classified labels and links using machine learning models<br></p>
+                    </div>
+                </div>
+                <div class="col-md-6 card_hover">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="d-flex features-icons-icon"><i class="material-icons m-auto text-primary size-icon" data-bss-hover-animate="pulse">select_all</i></div>
+                        <h3>Annotate</h3>
+                        <p class="lead mb-0">Label and link parts of the images and pdf of scanned documents<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-blue">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Features</h2>
+                <p class="text-center">Some of the features of the OCR</p>
+            </div>
+            <div class="row features">
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-map-marker icon"></i>
+                    <h3 class="name">Works everywhere</h3>
+                    <p class="description">You can upload your documents from wherever you want</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-list-alt icon"></i>
+                    <h3 class="name">User-Friendly</h3>
+                    <p class="description">The UI is very user friendly and allows&nbsp;user to interact with the software easily<br></p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-target icon">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <circle cx="12" cy="12" r="9"></circle>
+                    </svg>
+                    <h3 class="name">Accurate</h3>
+                    <p class="description">Fast and&nbsp; accurate translations and label classifications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+                    <h2>How to use ?</h2>
+                    <p class="lead mb-0">&nbsp; All you have to do is just upload the scanned document in either image or pdf format and the rest will be done by us.&nbsp; <br>&nbsp; To annotate, you can either modify the classified labels, links and text generated during file conversion or just upload a new document and create your own labels and links<br></p>
+                </div>
+                <div class="col-lg-6 text-white order-lg-2 showcase-img" style="background-image:url(&quot;static/assets/img/bg-showcase-3.jpg&quot;);"><span></span></div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image:url(&quot;static/assets/img/bg-showcase-2.jpg&quot;);"><span></span></div>
+                <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+                    <h2>How does it work ?</h2>
+                    <p class="lead mb-0">&nbsp;We use CRAFT network to detect sentences, Tesseract for word recognition, Faster-RCNN model for label classification, Siamese Neural Network for linking related sentences and keys&nbsp;<br></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-basic">
+        <div class="social"><a href="#"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+    </footer>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bs-init.js')}}"></script>
+</body>
+
+</html>

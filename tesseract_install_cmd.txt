@@ -1,3 +1,5 @@
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get install tesseract-ocr"
 
 az vm run-command invoke -g test_resource -n myVm --command-id RunShellScript --scripts "apt-get install tesseract-ocr"
+
+sudo apt install poppler-utils

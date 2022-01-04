@@ -122,5 +122,5 @@ class word_detector():
         # load data
         image = imgproc.loadImage(image_path)
         bboxes, polys, score_text = self.test_net(self.net, image, self.text_threshold, self.link_threshold, self.low_text, self.cuda, self.poly, self.refine_net)
-        return bboxes
+        return bboxes, score_text
 

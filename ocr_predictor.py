@@ -7,6 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import pickle
 import torchvision
+from torchvision.models.detection import faster_rcnn
 import torchvision.transforms as T
 from pytesseract import Output
 from word_Detection import *
@@ -14,6 +15,7 @@ from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 
 class predictor():
     def __init__(self,device):
+        self.status_path = ""
         class siamese_multi_head(nn.Module):
             def __init__(self,device,hidden_size,n_layer,embedding_size):
                 super().__init__()
@@ -157,18 +159,28 @@ class predictor():
 
         return np.array(padded_sentences).reshape((len(sentences),seq_len))
 
-    def predict(self,img):
+    def predict(self,img,status_path):
+        self.status_path ='status/'+status_path
+        os.mkdir(self.status_path+'/Started')
         file_name = str(len(os.listdir(self.save_img_path)))+'.png'
         path = self.save_img_path+file_name
         cv2.imwrite(path, img)
-        boxxes = self.model_sentence_detector.detect(path).astype(np.int32)
-        
+        boxxes, _ = self.model_sentence_detector.detect(path)
+        os.remove(path)
+        boxxes = np.asarray(boxxes).astype(np.int32)
+        os.mkdir(self.status_path+'/CRAFT')
         prediction = self.model_label_classifier(self.transforms(img).unsqueeze(0))[0]
+        os.mkdir(self.status_path+'/Faster-RCNN')
 
         shape = img.shape[:2]
         iou_label = []
+        iou_scores = []
+        faster_rcnn_scores = []
+
         for  bounding_boxes in boxxes:
             iou_label.append(1)  # 1 for others
+            iou_scores.append(-1)
+            faster_rcnn_scores.append(-1)
             temp_iou = 0
             x_min, y_min = tuple(bounding_boxes[0])
             x_max, y_max = tuple(bounding_boxes[2])
@@ -183,6 +195,8 @@ class predictor():
                 if iou>temp_iou:
                     temp_iou = iou
                     iou_label[-1] = int(labels)
+                    iou_scores[-1] = iou
+                    faster_rcnn_scores[-1] = scores
 
         output_img =  np.copy(img)
         each_sentence = []
@@ -211,7 +225,7 @@ class predictor():
 
             each_word_coord.append(temp_each_word_coord)
             each_word.append(temp_each_word)       
-
+        os.mkdir(self.status_path+'/Pytesseract')
         for idx, (whole, sep) in enumerate(zip(each_sentence,each_word)):
             for w_idx,word in enumerate(sep):
                 each_word[idx][w_idx] = word.strip()
@@ -221,10 +235,12 @@ class predictor():
                 each_sentence[idx] = " ".join(each_word[idx])
 
         linked_dict = {}
+        siamese_scores = {}
 
         for ref1 , (sentence1, sentence_coord1,label1) in enumerate(zip(each_sentence,boxxes,iou_label)):
             if ref1 not in linked_dict.keys():
                 linked_dict[ref1] = []
+                siamese_scores[ref1] = []
 
             sentence1 = torch.LongTensor(self.sentence_padding(self.tockenize([sentence1],vocab=self.vocab),seq_len=50))
 
@@ -236,6 +252,7 @@ class predictor():
                     continue
                 if ref2 not in linked_dict.keys():
                     linked_dict[ref2] = []
+                    siamese_scores[ref2] = []
 
                 sentence2 = torch.LongTensor(self.sentence_padding(self.tockenize([sentence2],vocab=self.vocab),seq_len=50))
                 sentence_coord2 = torch.FloatTensor([[sentence_coord2[0][0],sentence_coord2[0][1],sentence_coord2[2][0],sentence_coord2[2][1]]])
@@ -244,10 +261,13 @@ class predictor():
                 if similarity>=0.5:
                     if ref2 not in linked_dict[ref1]:
                         linked_dict[ref1].append(ref2)
+                        siamese_scores[ref1].append(similarity)
 
                     if ref1 not in linked_dict[ref2]:
                         linked_dict[ref2].append(ref1)
+                        siamese_scores[ref2].append(similarity)
 
+        os.mkdir(self.status_path+'/Siamese Neural Network')
         final_output = {'form':[]}
         for idx, (nth_label, nth_sentence, nth_words, nth_sentence_bounding_boxes, nth_word_bounding_boxes) in enumerate(zip(iou_label,each_sentence,each_word,boxxes,each_word_coord)):
             temp = {}
@@ -271,4 +291,9 @@ class predictor():
 
             final_output['form'].append(temp)
 
-        return final_output
+        temp_faster_rcnn_scores = []
+        for i in faster_rcnn_scores:
+            temp_faster_rcnn_scores.append(float(i))
+
+        loading_dict = {"user_output":final_output,"faster_rcnn_scores":temp_faster_rcnn_scores,"siamese_scores":siamese_scores}
+        pickle.dump(loading_dict, open(self.status_path+'/result', "wb"))

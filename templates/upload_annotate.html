@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/material-icons.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Drag--Drop-Upload-Form.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Features-Blue.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Footer-Basic.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-Clean.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/PJansari---Horizontal-Stepper.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/steps-progressbar.css')}}">
+    <script src="{{ url_for('static', filename='assets/js/upload.js')}}"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean">
+        <div class="container"><a class="navbar-brand pulse animated fw-bold" href="#">FROZENWOLF</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item menu"><a class="nav-link " href="{{ url_for('home') }}" style="border-top-color: rgb(70,;border-right-color: 87,;border-bottom-color: 101);border-left-color: 87,;">HOME</a></li>
+                    <li class="nav-item menu"><a class="nav-link " href="{{ url_for('upload') }}" style="border-top-color: rgb(70,;border-right-color: 87,;border-bottom-color: 101);border-left-color: 87,;">CONVERT</a></li>
+                    <li class="nav-item menu"><a class="nav-link active" href="{{ url_for('upload_annotate') }}" style="border-top-color: rgb(70,;border-right-color: 87,;border-bottom-color: 101);border-left-color: 87,;">ANNOTATE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="feature_h">UPLOAD IMAGE TO BE ANNOTATED</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="feature_explain">
+                            <p>Very easy easy to annotate your files</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col custom_progress">
+                                <div class="md-stepper-horizontal orange">
+                                    <div class="md-step active">
+                                        <div class="md-step-circle orange"><i class="material-icons size-icon-progess">file_upload</i></div>
+                                        <div class="md-step-title"><span><strong>Upload</strong></span></div>
+                                        <div class="md-step-bar-right"></div>
+                                        <div class="md-step-bar-right"></div>
+                                    </div>
+                                    <div class="md-step active">
+                                        <div class="md-step-circle grey"><i class="material-icons size-icon-progess">edit</i></div>
+                                        <div class="md-step-title"><span>Annotate<br></span></div>
+                                        <div class="md-step-bar-left"></div>
+                                        <div class="md-step-bar-right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <section class="upload_sec_pos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                            <div class="file-upload">
+                              <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                            
+                              <div class="image-upload-wrap">
+                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                <div class="drag-text">
+                                  <h3>Drag and drop a file or select add Image</h3>
+                                </div>
+                              </div>
+                              <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                </div>
+                                <div class="image-title-wrap"></divclass>
+                                  <button class="upload-image" type="button" onclick = "upload_annotate();">Upload</button>
+                                </div>
+                              </div>
+                            </div>
+                            </form>
+                </div>
+
+            </div>
+        </section>
+    </header>
+    <section class="text-center bg-light features-icons feature-scale">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 card_custom_static">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="d-flex features-icons-icon"><i class="material-icons m-auto text-primary size-icon" data-bss-hover-animate="pulse">file_upload</i></div>
+                        <h3>Upload</h3>
+                        <p class="lead mb-0">Drag and drop scanned documents of format PDF, PNG,JPG OR JPEG<br><br></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 card_custom_static">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="d-flex features-icons-icon"><i class="material-icons m-auto text-primary size-icon" data-bss-hover-animate="pulse">select_all</i></div>
+                        <h3>Annotate</h3>
+                        <p class="lead mb-0">That's it you can now add text, labels and links wherever needed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-basic">
+        <div class="social"><a href="#"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+    </footer>
+    <script src="{{ url_for('static', filename='assets/js/bs-init.js')}}"></script>
+</body>
+
+</html>

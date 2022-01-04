@@ -1,0 +1,128 @@
+.card_hover {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card_hover:hover {
+  transform: scale(1.02);
+}
+
+#target{
+  object-fit: contain;
+  height:100%;
+  width:100%;
+  position: relative;
+}
+
+.limit {
+  max-height: 100vh;
+  overflow: auto;
+}
+.limit-word{
+  max-height: 50vh;
+  max-width: 50vh;
+}
+.col.col-7.limit-img {
+  max-height: 100vh;
+}
+
+.nav-item.menu:hover {
+  background-color: #ffcc1e;
+}
+
+.feature_h {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.custom_pos_scroll {
+  position: relative;
+  padding-top: 2%;
+}
+
+.col.model_bar {
+  padding-bottom: 3%;
+  padding-top: 3%;
+  background-color: rgba(134,169,238,0.75);
+}
+
+.result_h {
+  font-size: xx-large;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.btn.btn-primary.content_scale {
+  transform: scale(1.15);
+}
+
+.feature_explain {
+  padding-top: 2%;
+  font-size: larger;
+  text-align: center;
+}
+
+.size-icon {
+  width: 70%;
+  height: 70%;
+}
+
+.size-icon-progess {
+  width: 90%;
+  height: 90%;
+}
+
+.col.custom_progress {
+  transform: scale(0.7);
+  position: relative;
+  padding-bottom: 5%;
+}
+
+.container.upload_pos {
+  position: relative;
+  padding-top: 8%;
+  padding-bottom: 3%;
+}
+
+.col-lg-4.card_custom_static {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+}
+
+header {
+  background-color: #2ece9e;
+}
+
+.upload_sec_pos {
+  position: relative;
+  padding-top: 3%;
+  padding-bottom: 2%;
+  background-color: #7765ea;
+  object-fit: cover;
+}
+
+#user_output {
+  text-align: left;
+}
+
+.custom_codeblock {
+  position: relative;
+  text-align: center;
+  position: relative;
+}
+
+.upload_btn {
+  position: relative;
+  text-align: center;
+  padding-top: 3%;
+  border-radius: 2px;
+  font-size: large;
+}
+

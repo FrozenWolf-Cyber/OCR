@@ -1,0 +1,14 @@
+.codeblock {
+  padding: 15px;
+  border: 1px solid #666;
+  background: #e8e8e8;
+  color: var(--primary);
+  border-radius: 5px;
+  padding: 3%;
+}
+
+.next_btn {
+  position: relative;
+  text-align: center;
+}
+
