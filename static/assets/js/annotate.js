@@ -118,11 +118,12 @@ function create_sentence_Annotationformat(){
 }
 
 function create_word_Annotationformat(id){
+   var temp__ = JSON.parse(localStorage.getItem('temp_output'))["form"]
    var instance_data = {};
-   for (let j in JSON.parse(localStorage.getItem('temp_output'))["form"]){
-      if (JSON.parse(localStorage.getItem('temp_output'))["form"][j]["id"] == id.toString()){
-          instance_data = JSON.parse(localStorage.getItem('temp_output'))["form"][id]["words"]
-          word_loc_ref = JSON.parse(localStorage.getItem('temp_output'))["form"][id]["box"].map(Number)
+   for (let j in temp__){
+      if (temp__[j]["id"] == id){
+          instance_data = temp__[j]["words"]
+          break
       }
    }
 
