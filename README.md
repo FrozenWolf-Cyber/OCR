@@ -44,8 +44,12 @@ torchinfo
 albumentations
 ```
 ## Usage :
-###1.Starting the server :
-###2.How to use the website ? :
-###3.Predicting mutliple files offline :
+
+### 1.Starting the server :
+
+### 2.How to use the website ? :
+
+### 3.Predicting mutliple files offline :
+
 
 
