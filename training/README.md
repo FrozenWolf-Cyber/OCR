@@ -37,7 +37,7 @@ Table of Contents
 #### Prediction :
 Individual sample : <br><br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/57902078/148230888-fd4ec20b-71ef-4300-952b-960f7bffe7e0.png" width=90% height=90%>
+<img src="https://user-images.githubusercontent.com/57902078/148230888-fd4ec20b-71ef-4300-952b-960f7bffe7e0.png" width=75% height=75%>
 </p>
 <br>
 Comparing it against ground truth :<br><br>
@@ -54,12 +54,14 @@ Comparing it against ground truth :<br><br>
 
 #### Loss vs Epoch :
 The model is trained for over 50 epochs.<br><br>
-![faster_rcnn_loss](https://user-images.githubusercontent.com/57902078/148232074-0a8f69e4-cbd0-4df7-89f7-46d9f6e5dcb9.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148232074-0a8f69e4-cbd0-4df7-89f7-46d9f6e5dcb9.png" width=75% height=75%>
+</p>
 
 #### Predictions :
 Individual sample : <br><br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/57902078/148232388-23e55ec2-ca7f-4fb1-96bc-f6a029da9a6b.png" width=90% height=90%>
+<img src="https://user-images.githubusercontent.com/57902078/148232388-23e55ec2-ca7f-4fb1-96bc-f6a029da9a6b.png" width=75% height=75%>
 </p>
 
 <br><br>
