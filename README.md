@@ -1,4 +1,29 @@
 # OCR
+
+[![Build Status](https://travis-ci.org/tesseract-ocr/tesseract.svg?branch=master)](https://travis-ci.org/tesseract-ocr/tesseract)
+[![Build status](https://ci.appveyor.com/api/projects/status/miah0ikfsf0j3819/branch/master?svg=true)](https://ci.appveyor.com/project/zdenop/tesseract/)
+![Build status](https://github.com/tesseract-ocr/tesseract/workflows/sw/badge.svg)<br>
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/tesseract-ocr/badge.svg)](https://scan.coverity.com/projects/tesseract-ocr)
+[![Code Quality: Cpp](https://img.shields.io/lgtm/grade/cpp/g/tesseract-ocr/tesseract.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tesseract-ocr/tesseract/context:cpp)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/tesseract-ocr/tesseract.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tesseract-ocr/tesseract/alerts)
+[![OSS-Fuzz](https://img.shields.io/badge/oss--fuzz-fuzzing-brightgreen)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=2&q=proj:tesseract-ocr)
+<br/>
+[![GitHub license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/LICENSE)
+[![Downloads](https://img.shields.io/badge/download-all%20releases-brightgreen.svg)](https://github.com/tesseract-ocr/tesseract/releases/)
+
+Table of Contents
+=================
+   * [About](#about)
+   * [Brief history](#brief-history)
+   * [Installing Tesseract](#installing-tesseract)
+   * [Running Tesseract](#running-tesseract)
+   * [For developers](#for-developers)
+   * [Support](#support)
+   * [License](#license)
+   * [Dependencies](#dependencies)
+   * [Latest Version of README](#latest-version-of-readme)
+
+
 &nbsp;&nbsp;&nbsp;&nbsp;Combining CRAFT, Faster R-CNN, Tesseract and Siamese neural network model to make an Optical character recognition software which is hosted in azure cloud [here](http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home). The neural network models are trained with the help of pytorch on [FUND](https://guillaumejaume.github.io/FUNSD/) dataset and the server is hosted in a virtual machine in azure cloud using Flask. The frontend website consists of options for users to upload scanned document of files of formats - .png, .jpg, .jpeg, .pdf (for pdf only the first page is considered) which is in return is converted into editable text, bounding boxes for each words and sentences, classified labels for each sentences among 'other', 'question', 'answer' and 'header' and also the linked sentences. The website also provides an user friendly interface for users to modify the model predictions using annotate feature which can also be done to an document without feeding it to the model waiting for model predictions from scratch. The annotation interface is made with the help of [annotorious.js](annotorious). After the model result or after annotating the document the information can be downloaded into simple .txt format.
 
 # Alogrthim for Complete Model :
@@ -8,7 +33,7 @@
 
 ![OCR_flowchart](https://user-images.githubusercontent.com/57902078/148105380-bbc69ff0-0a55-48d1-a711-13fb2f0f76ef.png)
 
-## Quick start :
+## Installation :
 ### 1. Server Install Requirements :
 #### Libraries Used :
 ```
