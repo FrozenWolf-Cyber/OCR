@@ -29,11 +29,11 @@ Table of Contents
 ## Alogrthim for Complete Model :
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; First, we are feeding the image of the scanned document into the CRAFT model which returns bounding boxes for sentences. Then we feed the image again into the Faster R-CNN model which we trained before which in return will give approximate regional bounding boxes of each label category. Now we will use the bounding boxes of each sentence and compare it with the regional bounding boxes that we got from Faster R-CNN using IOU and categorize each sentence that has maximum IOU score.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now we will pass each sentence image into the Tesseract model which will give us bounding boxes of each word and translation for each word and sentence. Then we will iterate every two sentences and combine the predicted translation of each sentence with a bounding box and label classification feed into Siamese Neural Network which will give us a similarity score. We will use this similarity score to check against a threshold value and if it crosses the threshold then we will add it to the list of links for each sentence.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; I have explained all the training steps and what model I have choosen in details in their respective notebooks (.ipynb).<br>
+&nbsp;&nbsp;&nbsp;&nbsp; I have explained all the training steps and what model I have chosen in detail in their respective notebooks (.ipynb).<br>
 
 ## Result :
 ### 1.CRAFT :
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Character-Region Awareness For Text detection is to localize the individual character regions and link the detected characters to a text instance. It is also mutli-lingual which makes it easier to convert to expand the project targets to multiple languages and works very well along with Tesseract. I am using pre-trained CRAFT model and loading it using Pytorch. I am loading the scripts and pre-trained weights from ![here](https://github.com/clovaai/CRAFT-pytorch)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Character-Region Awareness For Text detection is to localize the individual character regions and link the detected characters to a text instance. It is also multi-lingual which makes it easier to convert to expand the project targets to multiple languages and works very well along with Tesseract. I am using a pre-trained CRAFT model and loading it using Pytorch. I am loading the scripts and pre-trained weights from![here](https://github.com/clovaai/CRAFT-pytorch)
 #### Prediction :
 Individual sample : <br><br>
 <p align="center">
@@ -50,7 +50,7 @@ Comparing it against ground truth :<br><br>
 <br><br>
 
 ### 2.Faster R-CNN :
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Faster R-CNN is a deep convolutional network used for object detection, that appears to the user as a single, end-to-end, unified network. The network can accurately and quickly predict the locations of different objects. I am using regional label bounding box outputs Faster R-CNN along with CRAFT bouding box to classify the labels of the sentences by calculating the maximum Intersection Over Union (IOU) value. It is normally trained to classify 4 labels accoding FUNSD dataset but the output has been restricted to 3 classes (merging header and questions into key) while running in server or for evaluation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Faster R-CNN is a deep convolutional network used for object detection, that appears to the user as a single, end-to-end, unified network. The network can accurately and quickly predict the locations of different objects. I am using regional label bounding box outputs Faster R-CNN along with CRAFT bounding box to classify the labels of the sentences by calculating the maximum Intersection Over Union (IOU) value. It is normally trained to classify 4 labels according to the FUNSD dataset but the output has been restricted to 3 classes (merging header and questions into key) while running in server or for evaluation
 
 #### Loss vs Epoch :
 The model is trained for over 50 epochs.<br><br>
@@ -74,15 +74,15 @@ Comparing it against ground truth :<br><br>
 <br><br>
 
 ### 3.Tesseract :
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tesseract is an OCR engine with support for unicode and the ability to recognize more than 100 languages out of the box. It can be trained to recognize other languages. I am using it to get bounding boxes for each word in a sentence and also to get translation seperately from each sentence and it's respective words in it. Tesseract module must be first installed to use it while Pytesseract library is used to access it using Python.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tesseract is an OCR engine with support for Unicode and the ability to recognize more than 100 languages out of the box. It can be trained to recognize other languages. I am using it to get bounding boxes for each word in a sentence and also to get translation separately from each sentence and its respective words in it. Tesseract module must be first installed to use it while Pytesseract library is used to access it using Python.
 
 #### Predictions :
 ![Tesseract_Word_Bounding_Box](https://user-images.githubusercontent.com/57902078/148233309-9cd488dd-29ea-4ddd-8e62-dc10e3b5cabf.png)
 <br><br>
 
 ### 4.LSTM + Siamese Neural Netowrk :
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long Short Term Memory networks – usually just called “LSTMs” – are a special kind of RNN, capable of learning long-term dependencies.LSTMs are explicitly designed to avoid the long-term dependency problem. Siamese Neural Network is a class of neural network architectures that contain two or more identical subnetworks. ‘identical’ here means, they have the same configuration with the same parameters and weights.It is used to find the similarity of the inputs by comparing its feature vectors.<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am taking a fixed size of 80 words (way over the average words in a sentence which is <30) and feeding it to pre-trained embedding layer which is loaded with GloVe word embedding weights which can be downloaded [here](https://nlp.stanford.edu/projects/glove/). The word embeddings (output dimention is (30,50)) that we get from embedding layer is passed onto a LSTM layer which will give the feature representation of each sentence (output shape 30,64) of each sentences. We are then combining these feature representation with the labels classified, bouding boxes from the Faster R-CNN and CRAFT model (Output shape : 64+4+1). Now we will find absolute difference between every two sentences and pass them to Linear layers finally giving us the similarity score. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long Short Term Memory networks – usually just called “LSTMs” – are a special kind of RNN, capable of learning long-term dependencies.LSTMs are explicitly designed to avoid the long-term dependency problem. Siamese Neural Network is a class of neural network architectures that contain two or more identical subnetworks. ‘identical’ here means, they have the same configuration with the same parameters and weights. It is used to find the similarity of the inputs by comparing its feature vectors.<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am taking a fixed size of 80 words (way over the average words in a sentence which is <30) and feeding it to pre-trained embedding layer which is loaded with GloVe word embedding weights which can be downloaded [here](https://nlp.stanford.edu/projects/glove/). The word embeddings (output dimension is (30,50)) that we get from the embedding layer are passed onto an LSTM layer which will give the feature representation of each sentence (output shape 30,64) of each sentence. We are then combining these feature representations with the labels classified, bounding boxes from the Faster R-CNN and CRAFT model (Output shape: 64+4+1). Now we will find the absolute difference between every two sentences and pass them to Linear layers finally giving us the similarity score. <br>
 
 #### Model Summary :
 ```
