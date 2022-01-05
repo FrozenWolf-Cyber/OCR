@@ -52,11 +52,17 @@ The model is trained for over 50 epochs.<br><br>
 
 #### Predictions :
 Individual sample : <br><br>
-![Faster_R-CNN_predictions](https://user-images.githubusercontent.com/57902078/148232388-23e55ec2-ca7f-4fb1-96bc-f6a029da9a6b.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148232388-23e55ec2-ca7f-4fb1-96bc-f6a029da9a6b.png" width=50% height=50%>
+</p>
 
 <br><br>
+
 Comparing it against ground truth :<br><br>
-![faster_rcnn_predictions_comparison](https://user-images.githubusercontent.com/57902078/148232418-327cc729-5852-4fb2-9655-08bc37e81fc1.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148232418-327cc729-5852-4fb2-9655-08bc37e81fc1.png" width=100% height=1100%>
+</p>
+
 <br>
 (Prediction on the Left, ground truth on the right)
 <br><br>
@@ -103,22 +109,30 @@ Estimated Total Size (MB): 80.29
 #### Model Metrics :
 
 ##### 1.Loss vs Epoch :
-![siamese_loss](https://user-images.githubusercontent.com/57902078/148237878-be4294cd-2aaf-4cf4-a320-e375f8e511fc.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148237878-be4294cd-2aaf-4cf4-a320-e375f8e511fc.png" width=70% height=70%>
+</p>
 
 <br>
 
 ##### 2.F-Score vs Epoch :
-![siamese_f_score](https://user-images.githubusercontent.com/57902078/148238038-0c24bfde-3d6f-4e71-8984-cbecb02029c6.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148238038-0c24bfde-3d6f-4e71-8984-cbecb02029c6.png" width=70% height=70%>
+</p>
 
 <br>
 
 ##### 3.Recall vs Epoch :
-![siamese_recall](https://user-images.githubusercontent.com/57902078/148237716-f9fe06db-c3a6-4261-92f3-1195e0a2b5de.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148237716-f9fe06db-c3a6-4261-92f3-1195e0a2b5de.png" width=70% height=70%>
+</p>
 
 <br>
 
 ##### 4.Precision vs Epoch :
-![siamese_precision](https://user-images.githubusercontent.com/57902078/148237657-6d6ab0e7-1e77-4b55-a92b-0fea88bfa71e.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148237657-6d6ab0e7-1e77-4b55-a92b-0fea88bfa71e.png" width=70% height=70%>
+</p>
 
 <br>
 
@@ -126,10 +140,13 @@ Estimated Total Size (MB): 80.29
 Best Validation Accuracy is ``` 92.1232 ``` 
 
 <br><br>
-
-![siamese_acc](https://user-images.githubusercontent.com/57902078/148237479-0b7daa5a-bb9a-47e3-8f09-788409be4175.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148237479-0b7daa5a-bb9a-47e3-8f09-788409be4175.png" width=70% height=70%>
+</p>
 
 <br>
 
-![siamese_acc2](https://user-images.githubusercontent.com/57902078/148237613-cd970b54-7292-48ba-8a51-c579ac37607e.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148237613-cd970b54-7292-48ba-8a51-c579ac37607e.png" width=70% height=70%>
+</p>
 
