@@ -242,10 +242,10 @@ class predictor():
                 linked_dict[ref1] = []
                 siamese_scores[ref1] = []
 
-            sentence1 = torch.LongTensor(self.sentence_padding(self.tockenize([sentence1],vocab=self.vocab),seq_len=50))
+            sentence1 = torch.LongTensor(self.sentence_padding(self.tockenize([sentence1],vocab=self.vocab),seq_len=50)).to(self.device)
 
-            sentence_coord1 = torch.FloatTensor([[sentence_coord1[0][0],sentence_coord1[0][1],sentence_coord1[2][0],sentence_coord1[2][1]]])
-            label1 = torch.FloatTensor([label1]).unsqueeze(0)
+            sentence_coord1 = torch.FloatTensor([[sentence_coord1[0][0],sentence_coord1[0][1],sentence_coord1[2][0],sentence_coord1[2][1]]]).to(self.device)
+            label1 = torch.FloatTensor([label1]).unsqueeze(0).to(self.device)
 
             for ref2 , (sentence2, sentence_coord2,label2) in enumerate(zip(each_sentence,boxxes,iou_label)):
                 if ref2 == ref1:
@@ -254,10 +254,10 @@ class predictor():
                     linked_dict[ref2] = []
                     siamese_scores[ref2] = []
 
-                sentence2 = torch.LongTensor(self.sentence_padding(self.tockenize([sentence2],vocab=self.vocab),seq_len=50))
-                sentence_coord2 = torch.FloatTensor([[sentence_coord2[0][0],sentence_coord2[0][1],sentence_coord2[2][0],sentence_coord2[2][1]]])
-                label2 = torch.FloatTensor([label2]).unsqueeze(0)
-                similarity = float(self.similarity_model([sentence1,sentence2],[label1,label2],[sentence_coord1,sentence_coord2]).detach().numpy()[0])
+                sentence2 = torch.LongTensor(self.sentence_padding(self.tockenize([sentence2],vocab=self.vocab),seq_len=50)).to(self.device)
+                sentence_coord2 = torch.FloatTensor([[sentence_coord2[0][0],sentence_coord2[0][1],sentence_coord2[2][0],sentence_coord2[2][1]]]).to(self.device)
+                label2 = torch.FloatTensor([label2]).unsqueeze(0).to(self.device)
+                similarity = float(self.similarity_model([sentence1,sentence2],[label1,label2],[sentence_coord1,sentence_coord2]).cpu().detach().numpy()[0])
                 if similarity>=0.5:
                     if ref2 not in linked_dict[ref1]:
                         linked_dict[ref1].append(ref2)
