@@ -13,7 +13,7 @@
 
 Table of Contents
 =================
-   * [About](#about)
+   * [About](#About)
    * [Alogrthim for Complete Model](#alogrthim-for-complete-model)
    * [Installation](#installation)
    * [Running Tesseract](#running-tesseract)
