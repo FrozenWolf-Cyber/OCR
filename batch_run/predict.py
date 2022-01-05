@@ -25,9 +25,22 @@ def main():
         "--path",
         help="Use relative path",
     )
+    parser.add_argument(
+        "-MTX",
+        "--MTX",
+        help="Should be <Y> or <N>. If <Y> then the output will be in MTX Hacker Olympics format, if <N> then the output will be of FUND dataset format",
+    )
+    parser.add_argument(
+        "-sr",
+        "--sr",
+        help="Should be <Y> or <N>. If <Y> then the output will be saved in a seperate JSON file whereas the scores for each label classification and linking will be in seperate file, if <N> then the both will be in same file",
+    )
+
 
     args = parser.parse_args()
     path = args.path
+    sr = args.sr
+    MTX = args.MTX
 
     if "result" not in os.listdir():
         os.mkdir("result")
@@ -55,9 +68,45 @@ def main():
             img = img.convert("RGB")
 
         result = model.predict(np.asarray(img))
-        
-        with open(os.path.join("result/",f'{file_name}.json'), 'w') as fp:
-            json.dump(result, fp)
+        mtx_output = None
+
+        if MTX == "Y":
+            mtx_output = []
+            for each in result["user_output"]["form"]:
+                temp = {}
+                temp["id"] = each["id"]
+                temp["box"] = each["box"]
+                temp["linking"] = each["linking"]
+                mtx_output.append(temp)
+            mtx_output = {"output":mtx_output}
+
+        if sr == "Y":
+            if mtx_output!=None:
+                with open(os.path.join("result/",f'{file_name}_output.json'), 'w') as fp:
+                    json.dump(mtx_output, fp)
+
+                del result["user_output"]
+                with open(os.path.join("result/",f'{file_name}_scores.json'), 'w') as fp:
+                    json.dump(result, fp)
+
+            else:
+                with open(os.path.join("result/",f'{file_name}_output.json'), 'w') as fp:
+                    json.dump(result, fp)
+
+                del result["user_output"]
+                with open(os.path.join("result/",f'{file_name}_scores.json'), 'w') as fp:
+                    json.dump(result, fp)
+
+        else:
+            if mtx_output!=None:
+                del result["user_output"]
+                mtx_output.update(result)
+                with open(os.path.join("result/",f'{file_name}_result.json'), 'w') as fp:
+                    json.dump(mtx_output, fp)
+
+            else:
+                with open(os.path.join("result/",f'{file_name}_result.json'), 'w') as fp:
+                    json.dump(result, fp)
 
         
         printProgressBar(i + 1, len(os.listdir()), prefix = 'Progress:', suffix = 'Complete', length = 50)

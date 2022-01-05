@@ -269,10 +269,11 @@ class predictor():
 
         os.mkdir(self.status_path+'/Siamese Neural Network')
         final_output = {'form':[]}
+        classes = {0:"other",1:"key",2:"value",3:"key"} # Restricting to key value , considering header as keys
         for idx, (nth_label, nth_sentence, nth_words, nth_sentence_bounding_boxes, nth_word_bounding_boxes) in enumerate(zip(iou_label,each_sentence,each_word,boxxes,each_word_coord)):
             temp = {}
             temp['id'] = int(idx)
-            temp['label'] = self.classes[nth_label-1]
+            temp['label'] = classes[nth_label-1]
             temp['box'] = np.array([nth_sentence_bounding_boxes[0][0],nth_sentence_bounding_boxes[0][1],nth_sentence_bounding_boxes[2][0],nth_sentence_bounding_boxes[2][1]],dtype=int).tolist()
             temp['text'] = nth_sentence
             temp['words'] = []
