@@ -250,7 +250,9 @@ Example :<br>
 ![image](https://user-images.githubusercontent.com/57902078/148266764-3430e302-85f8-4770-81df-02c64b15817d.png)
 
 <br>
-![image](https://user-images.githubusercontent.com/57902078/148271019-fb8f11d5-9eee-4820-bf11-0c0f537ed0ab.png)
+
+![image](https://user-images.githubusercontent.com/57902078/148270237-984a629b-b4ee-49b5-a1e5-3dc59a306c69.png)
+
 <br>
 Each prediction and score are saved in the result folder as a .json file together or separate based on the custom configuration you have selected.
 
