@@ -9,7 +9,7 @@
   <p align="center"  style="text-align:center">
     <br><br>Easy way to convert scanned documents into an editable text document,<br> classifying key-value pairs and annotating them
     <br><br>
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Train results »</strong></a> &nbsp;&nbsp;
+    <a href="https://github.com/FrozenWolf-Cyber/OCR/tree/master/training"><strong>Train results »</strong></a> &nbsp;&nbsp;
     <a href="http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home">View Demo »</a>
   </p>
 </div>
