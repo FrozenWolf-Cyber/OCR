@@ -34,9 +34,18 @@ Note : The libraries installed through this process is targeted for Ubuntu Pytho
 ```shell
 pip install -r requirements.txt
 ```
-### 2. Training Install Requirements :
-Note : This is required only if you want to run the .ipynb training notebooks in [trainning](https://github.com/FrozenWolf-Cyber/OCR/tree/master/training) folder
+### 2.Additional Training Install Requirements :
+Note : This is required only if you want to run the .ipynb training notebooks in [training](https://github.com/FrozenWolf-Cyber/OCR/tree/master/training) folder
 ```
+matplotlib
+seaborn
+nltk
+torchinfo
+albumentations
+```
+## Usage :
+###1.Starting the server :
+###2.How to use the website ? :
+###3.Predicting mutliple files offline :
 
-```
 
