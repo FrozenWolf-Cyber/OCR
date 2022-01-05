@@ -238,15 +238,26 @@ Example : ```python predict.py -path testing_data/images -MTX Y -sr N```
 
 Each predictions and scores are saved in result folder as a.json file together or seperate based on the custom configuration you have selected.
 
-### 3. Website Demo :
+### 3. Website :
+Note : In the website the format the model returns is that of the FUND dataset, for MTX evaluation purposes go to [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) where you can chooses the output format
 #### Hosting in azure VM
 ![image](https://user-images.githubusercontent.com/57902078/148203059-03c23a09-d56b-440d-83fc-284f6239f1e1.png)
 
 #### Home
+There are options to annotate after model predictions or else to start annotating from scratch
+![Home - OCR](https://user-images.githubusercontent.com/57902078/148220376-33fa7f34-434a-4aea-ade0-0a81e1cd2572.png)
+
 #### Upload
+You can either drag and drop the images or just select them. The images should be of form .png or .jpeg or .jpg or .pdf
+Note: For .pdf files the first page alone will be considered
+![Upload - OCR](https://user-images.githubusercontent.com/57902078/148220397-425ef4bb-cd02-4249-a9c5-101c875cc628.png)
+
 #### Progress
-#### Result
+After getting the model output user either can continue to modify their bouding box, label, translation and linking predicitions in annotations or finish it by downloading it in the form of .txt
+![Result - OCR](https://user-images.githubusercontent.com/57902078/148220428-878c5015-0012-4fb7-9039-0c9865f5c1ee.png)
+
 #### Annotate
-#### Features
+Using annotorius.js the annotation can be now done very much easier. To modify the words you have to click any one of the corresponding sentences. After completing annotating the images user can either download the final result in the .txt form. Instead of waiting for model predictions to come user can choose to annotate from scratch too.
+![Annotate - OCR](https://user-images.githubusercontent.com/57902078/148221947-7df05fd5-0312-4e39-aab6-63e9d2579d93.png)
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
