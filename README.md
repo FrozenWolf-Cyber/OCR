@@ -221,10 +221,13 @@ batch_run
 #### Custom run :
 Inside [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) folder run,
 ```shell
-python predict.py -path <target folder> -MTX <Y/N> -sr <Y/N>
+python predict.py -path <target folder> -MTX <Y/N> -sr <Y/N> -pdf <Y/N>
 ```
 
 ```
+usage: predict.py [-h] [-path PATH] [-MTX MTX] [-sr SR] [-pdf PDF]
+
+optional arguments:
   -h, --help            show this help message and exit
   -path PATH, --path PATH
                         Use relative path
@@ -233,10 +236,16 @@ python predict.py -path <target folder> -MTX <Y/N> -sr <Y/N>
   -sr SR, --sr SR       Should be <Y> or <N>. If <Y> then the output will be saved in a seperate JSON file whereas the
                         scores for each label classification and linking will be in seperate file, if <N> then the
                         both will be in same file
+  -pdf PDF, --pdf PDF   Should be <Y> or <N>. If <Y> then the target folder contains multiple .pdf documents, if <N>
+                        then the folder contains multiple .png,.jpg,.jpeg documents
 ```
-Example : ```python predict.py -path testing_data/images -MTX Y -sr N```
+Example :
+```python predict.py -path testing_data/images -MTX Y -sr N -pdf N```
+```python predict.py -path testing_data/documents -MTX Y -sr N -pdf Y```
 
-![demo_batch_run](https://user-images.githubusercontent.com/57902078/148174654-5dc62519-1db4-4b97-85e2-15144bae1897.png)
+![image](https://user-images.githubusercontent.com/57902078/148266764-3430e302-85f8-4770-81df-02c64b15817d.png)
+
+<br>
 
 Each prediction and score are saved in the result folder as a .json file together or separate based on the custom configuration you have selected.
 
