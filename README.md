@@ -239,6 +239,9 @@ Example : ```python predict.py -path testing_data/images -MTX Y -sr N```
 Each predictions and scores are saved in result folder as a.json file together or seperate based on the custom configuration you have selected.
 
 ### 3. Website Demo :
+#### Hosting in azure VM
+![image](https://user-images.githubusercontent.com/57902078/148203059-03c23a09-d56b-440d-83fc-284f6239f1e1.png)
+
 #### Home
 #### Upload
 #### Progress
