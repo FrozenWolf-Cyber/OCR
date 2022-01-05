@@ -36,10 +36,16 @@ Table of Contents
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Character-Region Awareness For Text detection is to localize the individual character regions and link the detected characters to a text instance. It is also mutli-lingual which makes it easier to convert to expand the project targets to multiple languages and works very well along with Tesseract. I am using pre-trained CRAFT model and loading it using Pytorch. I am loading the scripts and pre-trained weights from ![here](https://github.com/clovaai/CRAFT-pytorch)
 #### Prediction :
 Individual sample : <br><br>
-![CRAFT-predictions](https://user-images.githubusercontent.com/57902078/148230888-fd4ec20b-71ef-4300-952b-960f7bffe7e0.png)
-<br><br>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148230888-fd4ec20b-71ef-4300-952b-960f7bffe7e0.png" width=90% height=90%>
+</p>
+<br>
 Comparing it against ground truth :<br><br>
-![craft_predictions_comparison](https://user-images.githubusercontent.com/57902078/148231055-7a98364b-35cd-4af8-9470-445d6fb636d1.png)<br>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/57902078/148240201-61cdce20-6ea7-4f66-9c2a-f3c89ca4343d.png" width=100% height=100%>
+</p>
+
+<br>
 (Prediction on the right, ground truth on the left)
 <br><br>
 
@@ -53,17 +59,15 @@ The model is trained for over 50 epochs.<br><br>
 #### Predictions :
 Individual sample : <br><br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/57902078/148232388-23e55ec2-ca7f-4fb1-96bc-f6a029da9a6b.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/57902078/148232388-23e55ec2-ca7f-4fb1-96bc-f6a029da9a6b.png" width=90% height=90%>
 </p>
 
 <br><br>
 
 Comparing it against ground truth :<br><br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/57902078/148232418-327cc729-5852-4fb2-9655-08bc37e81fc1.png" width=100% height=1100%>
+<img src="https://user-images.githubusercontent.com/57902078/148240835-76158065-9365-47d8-8c9a-185230b30823.png" width=100% height=100%>
 </p>
-
-<br>
 (Prediction on the Left, ground truth on the right)
 <br><br>
 
