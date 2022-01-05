@@ -28,7 +28,7 @@ Table of Contents
 &nbsp;&nbsp;&nbsp;&nbsp; Most of the model training is done with the help of Pytorch. I have explained the training steps and the metrics to analyze the models in [training](https://github.com/FrozenWolf-Cyber/OCR/tree/master/training)
 
 
-## Built Using :
+## Built Using
 Python :
 ```
 Flask
@@ -49,7 +49,7 @@ bootstrap
 annotorious
 ```
 
-## Installation :
+## Installation
 ### Dependencies :
 ```
 tesseract-ocr
@@ -76,7 +76,7 @@ clone the repo
 ```
 git clone https://github.com/FrozenWolf-Cyber/OCR.git
 ```
-## Usage :
+## Usage
 
 ### 1.Starting the server :
 Project structure :
