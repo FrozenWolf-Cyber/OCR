@@ -103,21 +103,23 @@ Estimated Total Size (MB): 80.29
 #### Model Metrics :
 
 ##### 1.Loss vs Epoch :
-![siamese_loss](https://user-images.githubusercontent.com/57902078/148236367-b42d6e63-8e3b-4560-88df-cc5445dcc4f8.png)
+![siamese_loss](https://user-images.githubusercontent.com/57902078/148237878-be4294cd-2aaf-4cf4-a320-e375f8e511fc.png)
+
 <br>
 ##### 2.F-Score vs Epoch :
-![siamese_f_score](https://user-images.githubusercontent.com/57902078/148236510-5b7e94d2-6d1e-4880-88ea-c87419ec8fbd.png)
+
 <br>
 ##### 3.Recall vs Epoch :
-![siamese_recall](https://user-images.githubusercontent.com/57902078/148236540-c7cbb7fb-7bd6-495e-a801-4dff2dfc2f7b.png)
+![siamese_recall](https://user-images.githubusercontent.com/57902078/148237716-f9fe06db-c3a6-4261-92f3-1195e0a2b5de.png)
 
 <br>
 ##### 4.Precision vs Epoch :
-![siamese_precision](https://user-images.githubusercontent.com/57902078/148236563-98cdad00-aaa8-473b-9b9a-691b04467a95.png)
+![siamese_precision](https://user-images.githubusercontent.com/57902078/148237657-6d6ab0e7-1e77-4b55-a92b-0fea88bfa71e.png)
+
 <br>
 ##### 5.Accuracy vs Epoch :
 Best Validation Accuracy is ``` 92.1232 ``` <br><br>
-![siamese_acc](https://user-images.githubusercontent.com/57902078/148236716-a554b9ab-4d00-47e4-9cdd-f11699ee3f2b.png)
-<br><br>
-![siamese_acc2](https://user-images.githubusercontent.com/57902078/148236790-588f56dd-2249-415c-bfea-929559de1f8c.png)
+![siamese_acc](https://user-images.githubusercontent.com/57902078/148237479-0b7daa5a-bb9a-47e3-8f09-788409be4175.png)
+<br>
+![siamese_acc2](https://user-images.githubusercontent.com/57902078/148237613-cd970b54-7292-48ba-8a51-c579ac37607e.png)
 
