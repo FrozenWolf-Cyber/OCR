@@ -4,6 +4,8 @@
 # Alogrthim for Complete Model :
 &nbsp;&nbsp;&nbsp;&nbsp;First, we are feeding the image of the scanned document into the CRAFT model which returns bounding boxes for sentences. Then we feed the image again into the Faster R-CNN model which we trained before which in return will give approximate regional bounding boxes of each label category. Now we will use the bounding boxes of each sentence and compare it with the regional bounding boxes that we got from Faster R-CNN using IOU and categorize each sentence that has maximum IOU score.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;Now we will pass each sentence image into the Tesseract model which will give us bounding boxes of each word and translation for each word and sentence. Then we will iterate every two sentences and combine the predicted translation of each sentence with a bounding box and label classification feed into Siamese Neural Network which will give us a similarity score. We will use this similarity score to check against a threshold value and if it crosses the threshold then we will add it to the list of links for each sentence.<br>
+
+
 ![OCR_flowchart](https://user-images.githubusercontent.com/57902078/148105380-bbc69ff0-0a55-48d1-a711-13fb2f0f76ef.png)
 
 ## Quick start :
