@@ -213,6 +213,10 @@ batch_run
 |       vocab
 |       
 +---testing_data
+   +---documents
+   |       your_pdf1.pdf
+   |       your_pdf2.pdf
+   |       your_pdf3.pdf
    \---images
         your_image1.png
         your_image2.png
@@ -239,9 +243,9 @@ optional arguments:
   -pdf PDF, --pdf PDF   Should be <Y> or <N>. If <Y> then the target folder contains multiple .pdf documents, if <N>
                         then the folder contains multiple .png,.jpg,.jpeg documents
 ```
-Example :
-```python predict.py -path testing_data/images -MTX Y -sr N -pdf N```
-```python predict.py -path testing_data/documents -MTX Y -sr N -pdf Y```
+Example :<br>
+```python predict.py -path testing_data/images -MTX Y -sr N -pdf N```<br>
+```python predict.py -path testing_data/documents -MTX Y -sr N -pdf Y```<br>
 
 ![image](https://user-images.githubusercontent.com/57902078/148266764-3430e302-85f8-4770-81df-02c64b15817d.png)
 
