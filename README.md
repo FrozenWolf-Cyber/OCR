@@ -20,8 +20,6 @@ Table of Contents
    * [About](#About)
    * [Installation](#Installation)
    * [Usage](#Usage)
-   * [Draw backs](#for-developers)
-
 
 ## About
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining CRAFT, Faster R-CNN, Tesseract and Siamese neural network model to make an Optical character recognition software which is hosted in azure cloud [here](http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home). The neural network models are trained with the help of PyTorch on [FUND](https://guillaumejaume.github.io/FUNSD/) dataset and the server is hosted in a virtual machine in azure cloud using Flask. The frontend website consists of options for users to upload a scanned document of files of formats - .png, .jpg, .jpeg, .pdf (for pdf only the first page is considered) which is in return is converted into editable text, bounding boxes for each word and sentences, classified labels for each sentence among 'other', 'question', 'answer' and 'header' and also the linked sentences. The website also provides a user-friendly interface for users to modify the model predictions using annotate features which can also be done to a document without feeding it to the model waiting for model predictions from scratch.<br> 
