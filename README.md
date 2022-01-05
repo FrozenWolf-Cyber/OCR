@@ -1,20 +1,23 @@
-# OCR
+<div id="top"></div>
 
-[![Build Status](https://travis-ci.org/tesseract-ocr/tesseract.svg?branch=master)](https://travis-ci.org/tesseract-ocr/tesseract)
-[![Build status](https://ci.appveyor.com/api/projects/status/miah0ikfsf0j3819/branch/master?svg=true)](https://ci.appveyor.com/project/zdenop/tesseract/)
-![Build status](https://github.com/tesseract-ocr/tesseract/workflows/sw/badge.svg)<br>
-[![Coverity Scan Build Status](https://scan.coverity.com/projects/tesseract-ocr/badge.svg)](https://scan.coverity.com/projects/tesseract-ocr)
-[![Code Quality: Cpp](https://img.shields.io/lgtm/grade/cpp/g/tesseract-ocr/tesseract.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tesseract-ocr/tesseract/context:cpp)
-[![Total Alerts](https://img.shields.io/lgtm/alerts/g/tesseract-ocr/tesseract.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tesseract-ocr/tesseract/alerts)
-[![OSS-Fuzz](https://img.shields.io/badge/oss--fuzz-fuzzing-brightgreen)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=2&q=proj:tesseract-ocr)
-<br/>
-[![GitHub license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/LICENSE)
-[![Downloads](https://img.shields.io/badge/download-all%20releases-brightgreen.svg)](https://github.com/tesseract-ocr/tesseract/releases/)
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="https://user-images.githubusercontent.com/57902078/148179403-5510f033-b751-4ff5-92fb-1b7fe1006728.jpeg" alt="Logo" width="100" height="100">
+  </a>
+
+  <p align="center"  style="text-align:center">
+    <br><br>Easy way to convert scanned documents into editable text document,<br> classifying key value pairs and annotating them
+    <br><br>
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Train results »</strong></a> &nbsp;&nbsp;
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo »</a>
+  </p>
+</div>
+
 
 Table of Contents
 =================
    * [About](#About)
-   * [Alogrthim for Complete Model](#Alogrthim-for-Complete-Model)
    * [Installation](#Installation)
    * [Usage](#Usage)
    * [For developers](#for-developers)
@@ -22,13 +25,6 @@ Table of Contents
 
 ## About
 &nbsp;&nbsp;&nbsp;&nbsp;Combining CRAFT, Faster R-CNN, Tesseract and Siamese neural network model to make an Optical character recognition software which is hosted in azure cloud [here](http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home). The neural network models are trained with the help of pytorch on [FUND](https://guillaumejaume.github.io/FUNSD/) dataset and the server is hosted in a virtual machine in azure cloud using Flask. The frontend website consists of options for users to upload scanned document of files of formats - .png, .jpg, .jpeg, .pdf (for pdf only the first page is considered) which is in return is converted into editable text, bounding boxes for each words and sentences, classified labels for each sentences among 'other', 'question', 'answer' and 'header' and also the linked sentences. The website also provides an user friendly interface for users to modify the model predictions using annotate feature which can also be done to an document without feeding it to the model waiting for model predictions from scratch. The annotation interface is made with the help of [annotorious.js](annotorious). After the model result or after annotating the document the information can be downloaded into simple .txt format.
-
-## Alogrthim for Complete Model :
-&nbsp;&nbsp;&nbsp;&nbsp;First, we are feeding the image of the scanned document into the CRAFT model which returns bounding boxes for sentences. Then we feed the image again into the Faster R-CNN model which we trained before which in return will give approximate regional bounding boxes of each label category. Now we will use the bounding boxes of each sentence and compare it with the regional bounding boxes that we got from Faster R-CNN using IOU and categorize each sentence that has maximum IOU score.<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Now we will pass each sentence image into the Tesseract model which will give us bounding boxes of each word and translation for each word and sentence. Then we will iterate every two sentences and combine the predicted translation of each sentence with a bounding box and label classification feed into Siamese Neural Network which will give us a similarity score. We will use this similarity score to check against a threshold value and if it crosses the threshold then we will add it to the list of links for each sentence.<br>
-
-
-![OCR_flowchart](https://user-images.githubusercontent.com/57902078/148105380-bbc69ff0-0a55-48d1-a711-13fb2f0f76ef.png)
 
 ## Built Using :
 Python :
@@ -82,6 +78,7 @@ git clone https://github.com/FrozenWolf-Cyber/OCR.git
 
 ### 1.Starting the server :
 Project structure :
+
 ```
 server:
 |   app.py
@@ -175,14 +172,78 @@ server:
 
 ```
 To start the server run the app.py inside the server folder
-```
+```shell
 python app.py
 ```
 
-### 2.How to use the website ? :
+### 2.Predicting mutliple scanned documents offline :
+To run this program minimal installation is enough
+#### Project structure
+```
+batch_run
+|   app.py
+|   craft.py
+|   craft_utils.py
+|   demo_batch_run.png
+|   imgproc.py
+|   ocr_predictor.py
+|   predict.py
+|   refinenet.py
+|   tree.txt
+|   word_Detection.py
+|   
++---basenet
+|   |   vgg16_bn.py
+|   |   
+|   \---__pycache__
+|           vgg16_bn.cpython-39.pyc
+|           
++---img_save
+|       
++---result
+|       
++---saved_models
+|       craft_mlt_25k.pth
+|       craft_refiner_CTW1500.pth
+|       embs_npa.npy
+|       faster_rcnn_sgd.pth
+|       siamese_multi_head.pth
+|       vocab
+|       
++---testing_data
+   \---images
+        your_image1.png
+        your_image2.png
 
+```
+#### Custom run :
+Inside [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) folder run,
+```shell
+python predict.py -path <target folder> -MTX <Y/N> -sr <Y/N>
+```
 
-### 3.Predicting mutliple files offline :
+```
+  -h, --help            show this help message and exit
+  -path PATH, --path PATH
+                        Use relative path
+  -MTX MTX, --MTX MTX   Should be <Y> or <N>. If <Y> then the output will be in MTX Hacker Olympics format, if <N>
+                        then the output will be of FUND dataset format
+  -sr SR, --sr SR       Should be <Y> or <N>. If <Y> then the output will be saved in a seperate JSON file whereas the
+                        scores for each label classification and linking will be in seperate file, if <N> then the
+                        both will be in same file
+```
+Example : ```python predict.py -path testing_data/images -MTX Y -sr N```
 
+![demo_batch_run](https://user-images.githubusercontent.com/57902078/148174654-5dc62519-1db4-4b97-85e2-15144bae1897.png)
 
+Each predictions and scores are saved in result folder as a.json file together or seperate based on the custom configuration you have selected.
 
+### 3. Website Demo :
+#### Home
+#### Upload
+#### Progress
+#### Result
+#### Annotate
+#### Features
+
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
