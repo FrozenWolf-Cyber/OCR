@@ -179,6 +179,14 @@ To start the server run the app.py inside the server folder
 python app.py
 ```
 
+<br><br>
+
+
+https://user-images.githubusercontent.com/57902078/148345406-3d1beb0c-76df-4178-ae9d-a6d80521473d.mp4
+
+
+<br><br>
+
 ### 2.Predicting mutliple scanned documents offline :
 To run this program minimal installation is enough
 #### Project structure
