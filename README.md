@@ -245,12 +245,12 @@ optional arguments:
 ```
 Example :<br>
 ```python predict.py -path testing_data/images -MTX Y -sr N -pdf N```<br>
-```python predict.py -path testing_data/documents -MTX Y -sr N -pdf Y```<br>
+
 
 ![image](https://user-images.githubusercontent.com/57902078/148266764-3430e302-85f8-4770-81df-02c64b15817d.png)
 
 <br>
-
+```python predict.py -path testing_data/documents -MTX Y -sr N -pdf Y```<br>
 ![image](https://user-images.githubusercontent.com/57902078/148270237-984a629b-b4ee-49b5-a1e5-3dc59a306c69.png)
 
 <br>
