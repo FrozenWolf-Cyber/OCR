@@ -133,7 +133,7 @@ def main():
                         json.dump(result, fp)
 
 
-            printProgressBar(i + 1, len(os.listdir()), prefix = 'Progress:', suffix = 'Completed', length = 50)
+            printProgressBar(i + 1, len(os.listdir(path)), prefix = 'Progress:', suffix = 'Completed', length = 50)
 
     else:
         converted = []
