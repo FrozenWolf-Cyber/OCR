@@ -10,8 +10,9 @@
     <br><br>Easy way to convert scanned documents into an editable text document,<br> classifying key-value pairs and annotating them
     <br><br>
     <a href="https://github.com/FrozenWolf-Cyber/OCR/tree/master/training"><strong>Train results »</strong></a> &nbsp;&nbsp;
-    <a href="https://drive.google.com/drive/folders/1rcIWV1qp_k9rbPBL-IcCa_fp1fHW7auG?usp=sharing">Download Results and Models »</a>&nbsp;&nbsp;
-    <a href="http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home">View Demo »</a> &nbsp;&nbsp;
+    <a href="https://drive.google.com/drive/folders/1rcIWV1qp_k9rbPBL-IcCa_fp1fHW7auG?usp=sharing">Download Results and Models »</a>&nbsp;&nbsp;<br>
+    <a href="http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home">Live Demo »</a> &nbsp;&nbsp;
+    <a href="https://github.com/FrozenWolf-Cyber/OCR/tree/master/Demo">Preview »</a> &nbsp;&nbsp;
   </p>
 </div>
 
@@ -28,6 +29,15 @@ Table of Contents
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am running the models in Azure VM because of the requirement of Tesseract and Popper. I am using Standard B2s (2 vcpus, 4 GiB memory) in Azure VM with Linux (ubuntu 18.04) as the operating system. I have added the videos and images of accessing the website which has been hosted through Azure VM but currently, I am unable to keep the VM open all the time due to interruption when the SSH connection is closed (I start the server in Azure VM using PuTTY to through SSH connection). But the same result can still be achieved by following the server installation and starting setup given [below](#Usage). I will be leaving the server open for as long as possible in a whole day so it might so the link might sometimes work.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp; Most of the model training is done with the help of Pytorch. I have explained the training steps and the metrics to analyze the models in [training](https://github.com/FrozenWolf-Cyber/OCR/tree/master/training).
 You can download all the [trained models](https://github.com/FrozenWolf-Cyber/OCR/tree/master/Public%20Test%20Set%20Submission) and [public test dataset](https://github.com/FrozenWolf-Cyber/OCR/tree/master/saved_models) predictions [here](https://drive.google.com/drive/folders/1rcIWV1qp_k9rbPBL-IcCa_fp1fHW7auG?usp=sharing).
+
+#### Website link : 
+```
+http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home
+``` 
+#### Submission Link :
+```
+https://drive.google.com/drive/folders/1rcIWV1qp_k9rbPBL-IcCa_fp1fHW7auG?usp=sharing
+```
 
 ## Built Using
 Python :
