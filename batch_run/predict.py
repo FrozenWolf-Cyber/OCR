@@ -25,7 +25,8 @@ def pdfProgressBar (iteration, total,page,t_page,document,t_document, decimals =
         print()
 
 def main():
-    model = predictor("cuda")
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model = predictor(device)
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-path",
