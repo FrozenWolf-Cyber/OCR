@@ -266,8 +266,19 @@ Each prediction and score are saved in the result folder as a .json file togethe
 ### 3. Website :
 Note : In the website the format the model returns is that of the FUND dataset, for MTX evaluation purposes go to [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) where you can choose the output format
 #### Hosting in azure VM
+
+
+https://user-images.githubusercontent.com/57902078/148344543-24a69ce5-51ad-401a-ac83-bc7f46a6a492.mp4
+
+<br><br>
+
 ![image](https://user-images.githubusercontent.com/57902078/148203059-03c23a09-d56b-440d-83fc-284f6239f1e1.png)
+
+<br>
+
 ![OCR-VM](https://user-images.githubusercontent.com/57902078/148226726-ff8b5730-a80a-4871-b359-d57256facc45.png)
+
+<br>
 
 #### Home
 There are options to annotate after model predictions or else to start annotating from scratch
