@@ -99,6 +99,7 @@ def main():
                     temp["id"] = each["id"]
                     temp["box"] = each["box"]
                     temp["linking"] = each["linking"]
+                    temp["label"]  = each["label"]
                     mtx_output.append(temp)
                 mtx_output = {"output":mtx_output}
 
@@ -174,6 +175,7 @@ def main():
                         temp["id"] = each["id"]
                         temp["box"] = each["box"]
                         temp["linking"] = each["linking"]
+                        temp["label"]  = each["label"]
                         each_doc_output[page_idx].append(temp)
 
                 else :
