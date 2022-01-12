@@ -43,11 +43,12 @@ batch_run
 
 ```
 ### Custom run :
+##### Prediction :
 Inside [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) folder run,
 ```shell
 python predict.py -path <target folder> -MTX <Y/N> -sr <Y/N> -pdf <Y/N>
 ```
-Note : The target folder must either contain only images or only pdf files.
+
 ```
 usage: predict.py [-h] [-path PATH] [-MTX MTX] [-sr SR] [-pdf PDF]
 
@@ -80,4 +81,43 @@ Example :<br>
 ![image](https://user-images.githubusercontent.com/57902078/148270237-984a629b-b4ee-49b5-a1e5-3dc59a306c69.png)
 
 <br>
-Each prediction and score are saved in the result folder as a .json file together or separate based on the custom configuration you have selected.
+
+##### Evalution :
+Inside [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) folder run,
+
+```shell
+python evaluate.py -img <Image folder> -anno <Annotations folder> -sr <Y/N>
+```
+
+<br>
+
+```
+optional arguments:
+  -h, --help            show this help message and exit
+  -img IMG_PATH, --img_path IMG_PATH
+                        Use relative path
+  -anno ANNO_PATH, --anno_path ANNO_PATH
+                        Use relative path
+  -sr SR, --sr SR       Should be <Y> or <N>. If <Y> then the output will be saved in a seperate JSON file whereas the
+                        scores for each label classification and linking will be in seperate file, if <N> then the
+                        both will be in same file
+```
+
+<br>
+
+Example :
+
+<br>
+
+```
+python evaluate.py -img testing_data/images -anno testing_data/annotations -sr Y
+```
+
+<br>
+
+![image](https://user-images.githubusercontent.com/57902078/149166663-b399f2d1-8033-492c-898f-358543d20547.png)
+
+<br>
+
+Each prediction and score are saved in the result folder as a .json file together or separate based on the custom configuration you have selected. In case of evaluation additional metrics.json file is saved, it contains label and linking accuracy, f_score, precision and recall value of each image seperately.
+
