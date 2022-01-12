@@ -24,7 +24,7 @@ Table of Contents
    * [Usage](#Usage)
 
 ## About
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining CRAFT, Faster R-CNN, Tesseract and Siamese neural network model to make an Optical character recognition software which is hosted in azure cloud [here](http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home). The neural network models are trained with the help of PyTorch on [FUND](https://guillaumejaume.github.io/FUNSD/) dataset and the server is hosted in a virtual machine in azure cloud using Flask. The frontend website consists of options for users to upload a scanned document of files of formats - .png, .jpg, .jpeg, .pdf (for pdf only the first page is considered) which is in return is converted into editable text, bounding boxes for each word and sentences, classified labels for each sentence among 'other', 'question', 'answer' and 'header' and also the linked sentences. The website also provides a user-friendly interface for users to modify the model predictions using annotate features which can also be done to a document without feeding it to the model waiting for model predictions from scratch.<br> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining CRAFT, Faster R-CNN, Tesseract and Siamese neural network model to make an Optical character recognition software which is hosted in azure cloud [here](http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home) (Note : Annotation works only in <strong>Firefox</strong>). The neural network models are trained with the help of PyTorch on [FUND](https://guillaumejaume.github.io/FUNSD/) dataset and the server is hosted in a virtual machine in azure cloud using Flask. The frontend website consists of options for users to upload a scanned document of files of formats - .png, .jpg, .jpeg, .pdf (for pdf only the first page is considered) which is in return is converted into editable text, bounding boxes for each word and sentences, classified labels for each sentence among 'other', 'question', 'answer' and 'header' and also the linked sentences. The website also provides a user-friendly interface for users to modify the model predictions using annotate features which can also be done to a document without feeding it to the model waiting for model predictions from scratch.<br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The annotation interface is made with the help of [annotorious.js](annotorious). After the model result or after annotating the document the information can be downloaded into simple .txt format. There are also options to run the model offline so that multiple images can be fed to the images at once and it is also an option to decide if the output should be of MTX format or FUND dataset format.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am running the models in Azure VM because of the requirement of Tesseract and Popper. I am using Standard B2s (2 vcpus, 4 GiB memory) in Azure VM with Linux (ubuntu 18.04) as the operating system. I have added the videos and images of accessing the website which has been hosted through Azure VM but currently, I am unable to keep the VM open all the time due to interruption when the SSH connection is closed (I start the server in Azure VM using PuTTY to through SSH connection). But the same result can still be achieved by following the server installation and starting setup given [below](#Usage). I will be leaving the server open for as long as possible in a whole day so it might so the link might sometimes work.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp; Most of the model training is done with the help of Pytorch. I have explained the training steps and the metrics to analyze the models in [training](https://github.com/FrozenWolf-Cyber/OCR/tree/master/training).
@@ -243,6 +243,7 @@ batch_run
 
 ```
 #### Custom run :
+##### Prediction :
 Inside [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) folder run,
 ```shell
 python predict.py -path <target folder> -MTX <Y/N> -sr <Y/N> -pdf <Y/N>
@@ -280,10 +281,48 @@ Example :<br>
 ![image](https://user-images.githubusercontent.com/57902078/148270237-984a629b-b4ee-49b5-a1e5-3dc59a306c69.png)
 
 <br>
-Each prediction and score are saved in the result folder as a .json file together or separate based on the custom configuration you have selected.
+
+##### Evalution :
+Inside [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) folder run,
+
+```shell
+python evaluate.py -img <Image folder> -anno <Annotations folder> -sr <Y/N>
+```
+
+<br>
+
+```
+optional arguments:
+  -h, --help            show this help message and exit
+  -img IMG_PATH, --img_path IMG_PATH
+                        Use relative path
+  -anno ANNO_PATH, --anno_path ANNO_PATH
+                        Use relative path
+  -sr SR, --sr SR       Should be <Y> or <N>. If <Y> then the output will be saved in a seperate JSON file whereas the
+                        scores for each label classification and linking will be in seperate file, if <N> then the
+                        both will be in same file
+```
+
+<br>
+
+Example :
+
+<br>
+
+```
+python evaluate.py -img testing_data/images -anno testing_data/annotations -sr Y
+```
+
+<br>
+
+![image](https://user-images.githubusercontent.com/57902078/149166663-b399f2d1-8033-492c-898f-358543d20547.png)
+
+<br>
+
+Each prediction and score are saved in the result folder as a .json file together or separate based on the custom configuration you have selected. In case of evaluation additional metrics.json file is saved, it contains label and linking accuracy, f_score, precision and recall value of each image seperately.
 
 ### 3. Website :
-Note : In the website the format the model returns is that of the FUND dataset, for MTX evaluation purposes go to [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) where you can choose the output format
+Note : In the website the format the model returns is that of the FUND dataset, for MTX evaluation purposes go to [batch_run](https://github.com/FrozenWolf-Cyber/OCR/tree/master/batch_run) where you can choose the output format.Annotation works only in Firefox
 #### Hosting in azure VM
 
 
