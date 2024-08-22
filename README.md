@@ -23,6 +23,10 @@ Table of Contents
    * [Installation](#Installation)
    * [Usage](#Usage)
 
+![ocr](https://github.com/user-attachments/assets/2316add2-6dcb-4ae8-93f8-a86ace367801)
+
+![ocr](https://github.com/user-attachments/assets/656f28fa-9766-4dbd-9ba6-e965f6e0d558)
+
 ## About
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining CRAFT, Faster R-CNN, Tesseract and Siamese neural network model to make an Optical character recognition software which is hosted in azure cloud [here](http://frozenwolf-ocr.westeurope.cloudapp.azure.com:5000/home) (Note : Annotation works only in <strong>Firefox</strong>). The neural network models are trained with the help of PyTorch on [FUND](https://guillaumejaume.github.io/FUNSD/) dataset and the server is hosted in a virtual machine in azure cloud using Flask. The frontend website consists of options for users to upload a scanned document of files of formats - .png, .jpg, .jpeg, .pdf (for pdf only the first page is considered) which is in return is converted into editable text, bounding boxes for each word and sentences, classified labels for each sentence among 'other', 'question', 'answer' and 'header' and also the linked sentences. The website also provides a user-friendly interface for users to modify the model predictions using annotate features which can also be done to a document without feeding it to the model waiting for model predictions from scratch.<br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The annotation interface is made with the help of [annotorious.js](annotorious). After the model result or after annotating the document the information can be downloaded into simple .txt format. There are also options to run the model offline so that multiple images can be fed to the images at once and it is also an option to decide if the output should be of MTX format or FUND dataset format.<br><br>
@@ -359,5 +363,12 @@ Using annotorius.js the annotation can be now done very much easier. To modify t
 <br><br>
 ![Annotate - OCR](https://user-images.githubusercontent.com/57902078/148221947-7df05fd5-0312-4e39-aab6-63e9d2579d93.png)
 <br><br>
+
+
+RCNN Performance:
+![ocr2](https://github.com/user-attachments/assets/7e70b227-8cb1-4560-bbc7-b83d276f5900)
+
+
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
 
